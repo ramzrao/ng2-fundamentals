@@ -25,7 +25,10 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
       // other libraries
-      'rxjs':                       'npm:rxjs',
+      'es6-shim': 'npm:es6-shim',
+            'reflect-metadata': 'npm:reflect-metadata',
+            'rxjs': 'npm:rxjs',
+            'zone.js': 'npm:zone.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -33,9 +36,10 @@
         main: './main.js',
         defaultExtension: 'js'
       },
-      rxjs: {
-        defaultExtension: 'js'
-      }
+      'es6-shim': { main: 'es6-shim.min.js', defaultExtension: 'js' },
+            'reflect-metadata': { main: 'Reflect.js', defaultExtension: 'js' },
+            'rxjs': { main: 'bundles/Rx.min.js', defaultExtension: 'js' },
+            'zone.js': { main: 'dist/zone.min.js', defaultExtension: 'js' }
     }
   });
 })(this);
