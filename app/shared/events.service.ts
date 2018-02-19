@@ -9,6 +9,9 @@ export class EventsService{
    getEvents(){
        return EVENTS;
    }
+   getEvent(id:number){
+      return EVENTS[0];
+   }
 }
 const EVENTS = [{
     id:1,
