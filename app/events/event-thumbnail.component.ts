@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 @Component({
     selector:'event-thumbnail',
     template:`
-    <div class="well honeywell thumbnail">
+    <div [routerLink]="['/events',singleEvent.id]" class="well honeywell thumbnail">
         <h2>{{singleEvent?.name}}</h2>
         <div>Date:{{singleEvent?.date}}</div>
         <div [ngClass]="getClass()" [class.red]="singleEvent?.time=='10:00 Am'" [ngSwitch]="singleEvent?.time">

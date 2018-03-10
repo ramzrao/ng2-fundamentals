@@ -10,7 +10,7 @@ export class EventsService{
        return EVENTS;
    }
    getEvent(id:number){
-      return EVENTS[0];
+      return EVENTS.filter(m=>m.id==id)[0];
    }
 }
 const EVENTS = [{
@@ -27,7 +27,7 @@ const EVENTS = [{
     }
 },
 {
- id:1,
+ id:2,
  name:'ng Connect',
  date:'2/10/2019',
  time:"10:00 Am",
@@ -40,7 +40,7 @@ const EVENTS = [{
  }
 },
 {
- id:1,
+ id:3,
  name:'You Connect',
  date:'2/10/2019',
  time:"10:00 Am",
@@ -53,7 +53,7 @@ const EVENTS = [{
  }
 },
 {
- id:1,
+ id:4,
  name:'Me Connect',
  date:'2/10/2019',
  time:"10:00 Am",

@@ -8,6 +8,9 @@ import { EventsService } from "./shared/events.service";
 import { EventDetailComponent } from "./events/eventdetail/event-detail.component";
 import { RouterModule } from "@angular/router";
 import { routes } from "./routes";
+import { CreateEventComponent } from "./events/create-event.component";
+import { Error404Component } from "./events/error.component";
+import { EventGuardService } from "./shared/event-guard.service";
 
 @NgModule({
     imports:[BrowserModule,RouterModule.forRoot(routes)],
@@ -15,11 +18,30 @@ import { routes } from "./routes";
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailComponent,
-    NavBarComponent
+    NavBarComponent,
+    CreateEventComponent,
+    Error404Component
 ],
     bootstrap:[EventsAppComponent],
-    providers:[EventsService]
+    providers:[
+        EventsService,
+        EventGuardService,
+        {
+            provide:'DeactivateServiceCheck',
+            useValue:checkDirty
+        }
+    
+    ]
 })
 export class AppModule{
 
+}
+
+function checkDirty(component:CreateEventComponent)
+{
+  if(component.isDirty)
+  {
+      return window.confirm("You have not saved anything.")
+  }
+  return false;
 }
