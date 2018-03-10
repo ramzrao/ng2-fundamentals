@@ -11,6 +11,7 @@ import { routes } from "./routes";
 import { CreateEventComponent } from "./events/create-event.component";
 import { Error404Component } from "./events/error.component";
 import { EventGuardService } from "./shared/event-guard.service";
+import { EventResolveService } from "./shared/event-resolve.service";
 
 @NgModule({
     imports:[BrowserModule,RouterModule.forRoot(routes)],
@@ -26,6 +27,7 @@ import { EventGuardService } from "./shared/event-guard.service";
     providers:[
         EventsService,
         EventGuardService,
+        EventResolveService,
         {
             provide:'DeactivateServiceCheck',
             useValue:checkDirty
