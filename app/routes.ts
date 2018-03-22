@@ -12,5 +12,6 @@ export const routes:Routes = [
     {path:'events/:id' ,component:EventDetailComponent,canActivate:[EventGuardService]},
     {path:'events' ,component:EventsListComponent,resolve:{events:EventResolveService}},
     {path:'404' ,component:Error404Component},
-    {path:'',redirectTo:'events',pathMatch:'full'}
+    {path:'user',loadChildren:'app/user/user.module#UserModule'},
+    {path:'',redirectTo:'events',pathMatch:'full'},
 ];

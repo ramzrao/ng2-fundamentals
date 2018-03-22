@@ -12,6 +12,7 @@ import { CreateEventComponent } from "./events/create-event.component";
 import { Error404Component } from "./events/error.component";
 import { EventGuardService } from "./shared/event-guard.service";
 import { EventResolveService } from "./shared/event-resolve.service";
+import { AuthService } from "./user/auth.service";
 
 @NgModule({
     imports:[BrowserModule,RouterModule.forRoot(routes)],
@@ -25,6 +26,7 @@ import { EventResolveService } from "./shared/event-resolve.service";
 ],
     bootstrap:[EventsAppComponent],
     providers:[
+        AuthService,
         EventsService,
         EventGuardService,
         EventResolveService,
