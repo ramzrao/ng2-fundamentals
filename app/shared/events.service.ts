@@ -15,6 +15,10 @@ export class EventsService{
    getEvent(id:number){
       return EVENTS.filter(m=>m.id==id)[0];
    }
+   saveEvent(event){
+     event.id=999;
+     EVENTS.push(event);
+   }
 }
 const EVENTS = [{
     id:1,

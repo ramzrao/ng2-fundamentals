@@ -1,21 +1,39 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { EventsService } from "../shared/events.service";
+import { Router } from "@angular/router";
 
 
 @Component(
   {
-      template:`
-      <h1> New Event </h1>
-      <hr>
-      <div>
-        <h3>[Create Event will go here]</h3>
-        <br />
-        <br />
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" [routerLink]="['/events']" class="btn btn-default">Cancel</button>
-      </div>
-      `
+      templateUrl:'app/events/create-event.component.html',
+      styles:[".error em{color:red;float:right;}",".error input{background-color:red}"]
   }
 )
-export class CreateEventComponent{
+export class CreateEventComponent implements OnInit{
     isDirty:boolean = true;
+    event:any;
+
+    constructor(private eventService:EventsService,private router:Router){
+
+    }
+
+    ngOnInit(){
+      this.event={
+          name:'Ng conf  2',
+          date:'01/01/2018',
+          time:'10:00 AM',
+          price:12,
+          location:{
+            address:'place',
+            city:'hyd',
+            country:'India'
+          },
+          imageUrl:'https://pespespes.files.wordpress.com/2013/07/fc-barcelona.png'
+      };
+    }
+    
+    saveEvent(formValues){
+      this.eventService.saveEvent(this.event);
+      this.router.navigate(['events']);
+    }
 }

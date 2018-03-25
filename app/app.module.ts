@@ -13,16 +13,19 @@ import { Error404Component } from "./events/error.component";
 import { EventGuardService } from "./shared/event-guard.service";
 import { EventResolveService } from "./shared/event-resolve.service";
 import { AuthService } from "./user/auth.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CreateSessionComponent } from "./events/eventdetail/create-session.component";
 
 @NgModule({
-    imports:[BrowserModule,RouterModule.forRoot(routes)],
+    imports:[BrowserModule,RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule],
     declarations:[EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailComponent,
     NavBarComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
 ],
     bootstrap:[EventsAppComponent],
     providers:[
